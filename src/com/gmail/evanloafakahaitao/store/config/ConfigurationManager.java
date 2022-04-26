@@ -14,11 +14,13 @@ public class ConfigurationManager {
         if (instance == null) {
             instance = new ConfigurationManager();
             instance.resourceBundle = ResourceBundle.getBundle(BUNDLE_NAME);
+            System.out.println("Config Manager initialized");
         }
         return instance;
     }
 
     public String getProperty(String key) {
+        System.out.printf("CM : Retrieving property %s%n", key);
         return (String) resourceBundle.getObject(key);
     }
 }

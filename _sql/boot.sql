@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS user (
 CREATE TABLE IF NOT EXISTS item (
   id          SERIAL,
   name        VARCHAR(50)            NOT NULL,
-  vendor_code BIGINT UNSIGNED        NOT NULL,
+  vendor_code CHAR(10)               NOT NULL,
   price       DECIMAL(9, 4) UNSIGNED NOT NULL,
   description VARCHAR(100),
   PRIMARY KEY (id),

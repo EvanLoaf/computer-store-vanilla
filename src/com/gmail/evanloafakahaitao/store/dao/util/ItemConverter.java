@@ -11,13 +11,13 @@ public class ItemConverter {
     public Item toItem(ResultSet resultSet) {
         Long id = null;
         String name = null;
-        Long vendorCode = null;
+        String vendorCode = null;
         String description = null;
         BigDecimal price = null;
         try {
             id = resultSet.getLong("id");
             name = resultSet.getString("name");
-            vendorCode = resultSet.getLong("vendor_code");
+            vendorCode = resultSet.getString("vendor_code");
             description = resultSet.getString("description");
             price = resultSet.getBigDecimal("price");
         } catch (SQLException e) {

@@ -25,7 +25,7 @@ public class ItemDaoImpl implements ItemDao {
                 "   (?, ?, ?, ?);\n";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, item.getName());
-            preparedStatement.setLong(2, item.getVendorCode());
+            preparedStatement.setString(2, item.getVendorCode());
             preparedStatement.setBigDecimal(3, item.getPrice());
             preparedStatement.setString(4, item.getDescription());
             changedRows = preparedStatement.executeUpdate();

@@ -9,7 +9,7 @@ public class Item implements Serializable {
 
     private Long id;
     private String name;
-    private Long vendorCode;
+    private String vendorCode;
     private String description;
     private BigDecimal price;
     private List<Order> ordersForItem;
@@ -35,7 +35,7 @@ public class Item implements Serializable {
         return name;
     }
 
-    public Long getVendorCode() {
+    public String getVendorCode() {
         return vendorCode;
     }
 
@@ -54,7 +54,7 @@ public class Item implements Serializable {
     public static final class Builder {
         private Long id;
         private String name;
-        private Long vendorCode;
+        private String vendorCode;
         private String description;
         private BigDecimal price;
         private List<Order> ordersForItem;
@@ -72,7 +72,7 @@ public class Item implements Serializable {
             return this;
         }
 
-        public Builder withVendorCode(Long vendorCode) {
+        public Builder withVendorCode(String vendorCode) {
             this.vendorCode = vendorCode;
             return this;
         }

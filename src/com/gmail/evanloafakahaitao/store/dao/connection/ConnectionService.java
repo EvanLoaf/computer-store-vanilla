@@ -33,18 +33,34 @@ public class ConnectionService {
     public Connection getConnection() {
         System.out.println("Establishing DB connection...");
         ConfigurationManager configurationManager = ConfigurationManager.getInstance();
-        try {
-            connection = DriverManager.getConnection(
-                configurationManager.getProperty(DatabaseProperties.DATABASE_URL),
-                configurationManager.getProperty(DatabaseProperties.DATABASE_USERNAME),
-                configurationManager.getProperty(DatabaseProperties.DATABASE_PASSWORD)
-            );
-            System.out.println("DB Connection established!");
+        if (connection != null) {
             return connection;
-        } catch (SQLException e) {
-            System.out.println("DB Connection failure. Printing trace.");
-            e.printStackTrace();
-            throw new RuntimeException("Connection failure");
+        } else {
+            try {
+                connection = DriverManager.getConnection(
+                        configurationManager.getProperty(DatabaseProperties.DATABASE_URL),
+                        configurationManager.getProperty(DatabaseProperties.DATABASE_USERNAME),
+                        configurationManager.getProperty(DatabaseProperties.DATABASE_PASSWORD)
+                );
+                System.out.println("DB Connection established!");
+                return connection;
+            } catch (SQLException e) {
+                System.out.println("DB Connection failure. Printing trace.");
+                e.printStackTrace();
+                throw new RuntimeException("Connection failure");
+            }
+        }
+    }
+
+    public void closeConnection() {
+        if (connection != null) {
+            try {
+                connection.close();
+                System.out.println("Connection closed!");
+            } catch (SQLException e) {
+                System.out.println("Closing connection failed!");
+                e.printStackTrace();
+            }
         }
     }
 }

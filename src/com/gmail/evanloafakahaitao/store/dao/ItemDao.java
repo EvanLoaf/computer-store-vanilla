@@ -12,4 +12,6 @@ public interface ItemDao {
     List<Item> findAll(Connection connection);
 
     Item findByVendorCode(Connection connection, Long vendorCode);
+
+    Item findById(Connection connection, Long id);
 }

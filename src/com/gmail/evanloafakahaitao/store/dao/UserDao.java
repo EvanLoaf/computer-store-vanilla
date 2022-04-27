@@ -12,4 +12,6 @@ public interface UserDao {
     User findByEmail(Connection connection, String email);
 
     int update(Connection connection, User user);
+
+    User findById(Connection connection, Long id);
 }

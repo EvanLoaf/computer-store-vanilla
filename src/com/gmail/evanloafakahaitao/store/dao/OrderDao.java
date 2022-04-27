@@ -11,5 +11,5 @@ public interface OrderDao {
 
     List<Order> findByUserId(Connection connection, Long id);
 
-    int delete(Connection connection, String uuid);
+    int delete(Connection connection, String orderCode);
 }

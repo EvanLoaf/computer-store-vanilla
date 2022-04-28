@@ -83,7 +83,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int update(Connection connection, User user) throws SQLException {
-        int updatedRows = 0;
+        int updatedColumns = 0;
         String sql =
                 "UPDATE \n" +
                 "   user \n" +
@@ -124,14 +124,14 @@ public class UserDaoImpl implements UserDao {
             }
             int[] rows = preparedStatement.executeBatch();
             for (int row : rows) {
-                updatedRows += row;
+                updatedColumns += row;
             }
         } catch (SQLException e) {
             System.out.println("Error updating User");
             e.printStackTrace();
             throw new SQLException(e);
         }
-        return updatedRows;
+        return updatedColumns;
     }
 
     @Override

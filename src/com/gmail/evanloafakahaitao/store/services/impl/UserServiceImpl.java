@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
         Connection connection = ConnectionService.getInstance().getConnection();
         System.out.println("Retrieving all users");
         users = userDao.findAll(connection);
-        System.out.printf("Users found : %d%n", users.size());
+        System.out.printf("Retrieved users : %d%n", users.size());
         return users;
     }
 

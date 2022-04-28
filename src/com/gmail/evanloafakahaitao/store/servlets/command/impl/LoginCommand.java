@@ -43,6 +43,6 @@ public class LoginCommand implements Command {
             request.setAttribute("password", password);
             return configurationManager.getProperty(PageProperties.LOGIN_PAGE_PATH);
         }
-        return null;
+        return configurationManager.getProperty(PageProperties.LOGIN_PAGE_PATH);
     }
 }

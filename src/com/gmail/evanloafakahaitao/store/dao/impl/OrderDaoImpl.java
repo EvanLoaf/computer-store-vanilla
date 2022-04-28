@@ -16,7 +16,7 @@ public class OrderDaoImpl implements OrderDao {
     private OrderConverter orderConverter = new OrderConverter();
 
     @Override
-    public int save(Connection connection, Order order) {
+    public int save(Connection connection, Order order) throws SQLException {
         int changedRows = 0;
         String sql =
                 "INSERT INTO \n" +
@@ -32,6 +32,7 @@ public class OrderDaoImpl implements OrderDao {
         } catch (SQLException e) {
             System.out.println("Error saving Order into DB");
             e.printStackTrace();
+            throw new SQLException(e);
         }
         return changedRows;
     }
@@ -62,7 +63,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public int delete(Connection connection, String orderCode) {
+    public int delete(Connection connection, String orderCode) throws SQLException {
         int changedRows = 0;
         String sql =
                 "DELETE FROM \n" +
@@ -75,6 +76,7 @@ public class OrderDaoImpl implements OrderDao {
         } catch (SQLException e) {
             System.out.println("Error deleting Order from DB");
             e.printStackTrace();
+            throw new SQLException(e);
         }
         return changedRows;
     }

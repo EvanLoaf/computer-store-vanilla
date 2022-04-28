@@ -16,7 +16,7 @@ public class ItemDaoImpl implements ItemDao {
     private ItemConverter itemConverter = new ItemConverter();
 
     @Override
-    public int save(Connection connection, Item item) {
+    public int save(Connection connection, Item item) throws SQLException {
         int changedRows = 0;
         String sql =
                 "INSERT INTO \n" +
@@ -32,6 +32,7 @@ public class ItemDaoImpl implements ItemDao {
         } catch (SQLException e) {
             System.out.println("Error saving Item into DB");
             e.printStackTrace();
+            throw new SQLException(e);
         }
         return changedRows;
     }

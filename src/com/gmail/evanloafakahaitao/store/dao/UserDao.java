@@ -3,6 +3,7 @@ package com.gmail.evanloafakahaitao.store.dao;
 import com.gmail.evanloafakahaitao.store.dao.model.User;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface UserDao {
@@ -11,7 +12,7 @@ public interface UserDao {
 
     User findByEmail(Connection connection, String email);
 
-    int update(Connection connection, User user);
+    int update(Connection connection, User user) throws SQLException;
 
     User findById(Connection connection, Long id);
 }

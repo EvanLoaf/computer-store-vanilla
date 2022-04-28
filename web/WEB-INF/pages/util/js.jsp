@@ -1,16 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 4/28/2022
-  Time: 3:39 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="app" value="${pageContext.request.contextPath}"/>
+<script src="${app}/resources/scripts/jquery-3.6.0.min.js"></script>
+<script src="${app}/resources/scripts/popper.min.js"></script>
+<script src="${app}/resources/scripts/bootstrap.min.js"></script>

@@ -1,4 +1,6 @@
 package com.gmail.evanloafakahaitao.store.servlets;
 
-public class DispatcherServlet {
+import javax.servlet.http.HttpServlet;
+
+public class DispatcherServlet extends HttpServlet {
 }

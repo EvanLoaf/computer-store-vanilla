@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
   <c:set var="app" value="${pageContext.request.contextPath}"/>
-  <jsp:include page="${app}/WWEB-INF/pages/util/head.jsp"/>
+  <jsp:include page="${app}/WEB-INF/pages/util/head.jsp"/>
   <title>Welcome</title>
 </head>
 <body>

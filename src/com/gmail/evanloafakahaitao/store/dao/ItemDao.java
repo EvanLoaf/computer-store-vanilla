@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ItemDao {
 
-    int save(Connection connection, Item item) throws SQLException;
+    int save(Connection connection, List<Item> items) throws SQLException;
 
     List<Item> findAll(Connection connection);
 

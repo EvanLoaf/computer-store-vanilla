@@ -16,7 +16,7 @@ public class ItemDaoImpl implements ItemDao {
     private ItemConverter itemConverter = new ItemConverter();
 
     @Override
-    public int save(Connection connection, Item item) throws SQLException {
+    public int save(Connection connection, List<Item> items) throws SQLException {
         int changedRows = 0;
         String sql =
                 "INSERT INTO \n" +
@@ -24,11 +24,17 @@ public class ItemDaoImpl implements ItemDao {
                 "VALUES \n" +
                 "   (?, ?, ?, ?);\n";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, item.getName());
-            preparedStatement.setString(2, item.getVendorCode());
-            preparedStatement.setBigDecimal(3, item.getPrice());
-            preparedStatement.setString(4, item.getDescription());
-            changedRows = preparedStatement.executeUpdate();
+            for (Item item : items) {
+                preparedStatement.setString(1, item.getName());
+                preparedStatement.setString(2, item.getVendorCode());
+                preparedStatement.setBigDecimal(3, item.getPrice());
+                preparedStatement.setString(4, item.getDescription());
+                preparedStatement.addBatch();
+            }
+            int[] changes = preparedStatement.executeBatch();
+            for (int change : changes) {
+                changedRows += change;
+            }
         } catch (SQLException e) {
             System.out.println("Error saving Item into DB");
             e.printStackTrace();

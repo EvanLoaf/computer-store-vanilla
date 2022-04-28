@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
             try {
                 connection.rollback();
             } catch (SQLException exc) {
-                System.out.println("Error rolling back transaction");
+                System.out.println("Error rolling back user update transaction");
                 exc.printStackTrace();
             }
             e.printStackTrace();

@@ -53,7 +53,7 @@ public class ItemServiceImpl implements ItemService {
         Connection connection = ConnectionService.getInstance().getConnection();
         System.out.println("Retrieving all items");
         items = itemDao.findAll(connection);
-        System.out.printf("Retrieving items : %d%n", items.size());
+        System.out.printf("Retrieved items : %d%n", items.size());
         return items;
     }
 

@@ -48,6 +48,27 @@ public class AuthenticationFilter implements Filter {
                         .withRequest(RequestMethodEnum.GET)
                         .build()
         );
+        USER_AVAILABLE.add(
+                AccessMode.newBuilder()
+                        .withRole(RoleEnum.USER)
+                        .withCommand(CommandEnum.MAKE_ORDER)
+                        .withRequest(RequestMethodEnum.GET)
+                        .build()
+        );
+        USER_AVAILABLE.add(
+                AccessMode.newBuilder()
+                        .withRole(RoleEnum.USER)
+                        .withCommand(CommandEnum.SUBMIT_ORDER)
+                        .withRequest(RequestMethodEnum.POST)
+                        .build()
+        );
+        USER_AVAILABLE.add(
+                AccessMode.newBuilder()
+                        .withRole(RoleEnum.USER)
+                        .withCommand(CommandEnum.ORDERS)
+                        .withRequest(RequestMethodEnum.GET)
+                        .build()
+        );
 
 
 
@@ -112,6 +133,10 @@ public class AuthenticationFilter implements Filter {
                 defaultRequest(servletRequest, servletResponse, filterChain, request, response, command);
             } else {
                 CommandEnum commandEnum = CommandEnum.getCommand(command);
+                //TODO remove, for error handling purposes only
+                if (commandEnum == null) {
+                    throw new ServletException("Test Error - AuthenticationFilter.doFilter");
+                }
                 RoleEnum roleEnum = userPrincipal.getRole();
                 RequestMethodEnum requestMethodEnum = RequestMethodEnum.getRequest(requestMethod);
                 AccessMode accessMode = AccessMode.newBuilder()

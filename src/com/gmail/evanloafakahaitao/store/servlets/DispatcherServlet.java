@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class DispatcherServlet extends HttpServlet {
 
-    private Map<CommandEnum, Command> commands = new HashMap<>();
+    private static final Map<CommandEnum, Command> commands = new HashMap<>();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,6 +62,9 @@ public class DispatcherServlet extends HttpServlet {
         commands.putIfAbsent(CommandEnum.LOAD_ITEMS, new LoadXmlItemsCommand());
         commands.putIfAbsent(CommandEnum.UPDATE_USER_MENU, new UpdateUserMenuCommand());
         commands.putIfAbsent(CommandEnum.UPDATE_USER, new UpdateUserCommand());
+        commands.putIfAbsent(CommandEnum.MAKE_ORDER, new MakeOrderCommand());
+        commands.putIfAbsent(CommandEnum.SUBMIT_ORDER, new SubmitOrderCommand());
+        commands.putIfAbsent(CommandEnum.ORDERS, new OrdersCommand());
         super.init();
     }
 }

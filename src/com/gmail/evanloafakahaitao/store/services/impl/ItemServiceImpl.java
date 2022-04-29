@@ -58,7 +58,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item findByVendorCode(Long vendorCode) {
+    public Item findByVendorCode(String vendorCode) {
         Item item;
         Connection connection = ConnectionService.getInstance().getConnection();
         System.out.println("Retrieving item by vendor code");

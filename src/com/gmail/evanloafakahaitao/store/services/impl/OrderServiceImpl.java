@@ -9,6 +9,7 @@ import com.gmail.evanloafakahaitao.store.services.OrderService;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 public class OrderServiceImpl implements OrderService {
 
@@ -19,9 +20,16 @@ public class OrderServiceImpl implements OrderService {
         int changedRows = 0;
         Connection connection = ConnectionService.getInstance().getConnection();
         System.out.println("Saving order");
+        Order orderWithCode = Order.newBuilder()
+                .withItem(order.getItem())
+                .withUser(order.getUser())
+                .withQuantity(order.getQuantity())
+                .withOrderCode(
+                        UUID.randomUUID().toString()
+                ).build();
         try {
             connection.setAutoCommit(false);
-            changedRows = orderDao.save(connection, order);
+            changedRows = orderDao.save(connection, orderWithCode);
             connection.commit();
             System.out.printf("Saved order : %s%n", changedRows == 1);
         } catch (SQLException e) {

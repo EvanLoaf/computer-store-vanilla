@@ -11,5 +11,5 @@ public interface ItemService {
 
     List<Item> findAll();
 
-    Item findByVendorCode(Long vendorCode);
+    Item findByVendorCode(String vendorCode);
 }

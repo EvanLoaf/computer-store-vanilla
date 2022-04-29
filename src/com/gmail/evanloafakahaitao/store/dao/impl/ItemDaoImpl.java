@@ -67,7 +67,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public Item findByVendorCode(Connection connection, Long vendorCode) {
+    public Item findByVendorCode(Connection connection, String vendorCode) {
         Item item = null;
         String sql =
                 "SELECT \n" +
@@ -77,7 +77,7 @@ public class ItemDaoImpl implements ItemDao {
                 "WHERE \n" +
                 "   item.vendor_code = ?;\n";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setLong(1, vendorCode);
+            preparedStatement.setString(1, vendorCode);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     item = itemConverter.toItem(resultSet);

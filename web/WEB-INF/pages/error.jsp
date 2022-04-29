@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row align-content-center">
         <div class="col-md">
-            <img src="${app}/resources/images/error_cat.jpg" class="img-fluid" alt="We are sorry" title="Sad cat">
+            <img src="${app}/resources/images/error_cat.jpg" class="img-fluid align-content-center error-img" alt="We are sorry" title="Sad cat">
         </div>
     </div>
     <div class="row">

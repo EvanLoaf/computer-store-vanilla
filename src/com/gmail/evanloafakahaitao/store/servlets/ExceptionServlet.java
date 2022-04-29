@@ -33,6 +33,7 @@ public class ExceptionServlet extends HttpServlet {
         System.out.printf("Status code : %d%n", statusCode);
         System.out.printf("Servlet name : %s%n", servletName);
         System.out.printf("Exception type : %s%n", throwable.getClass().getName());
+        System.out.printf("Request URI : %s%n", requestUri);
         throwable.printStackTrace();
         req.setAttribute("error", statusCode);
         req.setAttribute("error_description", "Service temporarily unavailable");

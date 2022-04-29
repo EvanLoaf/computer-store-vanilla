@@ -89,6 +89,10 @@
             <jsp:include page="${app}/WEB-INF/pages/util/ads.jsp"/>
         </div>
     </div>
+    <div class="row">
+        <a href="${app}/dispatcher?command=not_a_valid_command"
+           class="btn btn-outline-success btn-danger" aria-pressed="true" role="button">!!! DO NOT PRESS !!!</a>
+    </div>
 </div>
 <jsp:include page="${app}/WEB-INF/pages/util/js.jsp"/>
 </body>

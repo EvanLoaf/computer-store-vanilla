@@ -49,7 +49,7 @@
                                 <td>${user.firstName}</td>
                                 <td>${user.lastName}</td>
                                 <td>${user.phoneNumber}</td>
-                                <td>${user.addInfo}</td>
+                                <td>${user.additionalInfo}</td>
                                 <td>${user.role}</td>
                                 <td>
                                     <a href="${app}/dispatcher?command=change_user_menu&id=${user.id}"

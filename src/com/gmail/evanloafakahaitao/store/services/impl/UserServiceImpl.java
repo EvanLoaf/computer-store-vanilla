@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
         Connection connection = ConnectionService.getInstance().getConnection();
         System.out.println("Retrieving user by email");
         user = userDao.findByEmail(connection, email);
-        System.out.printf("User with email %s is found : %s", email, user != null);
+        System.out.printf("User with email %s is found : %s%n", email, user != null);
         return user;
     }
 }

@@ -19,7 +19,7 @@
     </csv:complexType>
     <csv:simpleType name="nameType">
         <csv:restriction base="csv:string">
-            <csv:pattern value="(?!.*?\s{2,}.*?)[\d\sa-zA-Z]{1,100}"/>
+            <csv:pattern value="[\d\sa-zA-Z]{1,100}"/>
         </csv:restriction>
     </csv:simpleType>
     <csv:simpleType name="vendorCodeType">

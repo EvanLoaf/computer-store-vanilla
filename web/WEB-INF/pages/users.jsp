@@ -52,7 +52,7 @@
                                 <td>${user.additionalInfo}</td>
                                 <td>${user.role}</td>
                                 <td>
-                                    <a href="${app}/dispatcher?command=change_user_menu&id=${user.id}"
+                                    <a href="${app}/dispatcher?command=change_user_menu&id=${user.email}"
                                        class="btn btn-primary" aria-pressed="true" role="button">EDIT</a>
                                 </td>
                             </tr>

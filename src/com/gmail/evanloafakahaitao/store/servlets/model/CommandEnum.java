@@ -3,7 +3,8 @@ package com.gmail.evanloafakahaitao.store.servlets.model;
 public enum CommandEnum {
     LOGIN("/dispatcher?command=login"),
     USERS("/dispatcher?command=users"),
-    ITEMS("/dispatcher?command=items");
+    ITEMS("/dispatcher?command=items"),
+    LOAD_ITEMS("/dispatcher?command=load_items");
 
     private final String url;
 

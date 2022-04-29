@@ -10,5 +10,5 @@ public interface UserService {
 
     User findByEmail(String email);
 
-    int update(User user);
+    int update(User newUser);
 }

@@ -1,10 +1,7 @@
 package com.gmail.evanloafakahaitao.store.servlets;
 
 import com.gmail.evanloafakahaitao.store.servlets.command.Command;
-import com.gmail.evanloafakahaitao.store.servlets.command.impl.ItemsCommand;
-import com.gmail.evanloafakahaitao.store.servlets.command.impl.LoadXmlItemsCommand;
-import com.gmail.evanloafakahaitao.store.servlets.command.impl.LoginCommand;
-import com.gmail.evanloafakahaitao.store.servlets.command.impl.UsersCommand;
+import com.gmail.evanloafakahaitao.store.servlets.command.impl.*;
 import com.gmail.evanloafakahaitao.store.servlets.model.CommandEnum;
 
 import javax.servlet.ServletException;
@@ -63,6 +60,8 @@ public class DispatcherServlet extends HttpServlet {
         commands.putIfAbsent(CommandEnum.USERS, new UsersCommand());
         commands.putIfAbsent(CommandEnum.ITEMS, new ItemsCommand());
         commands.putIfAbsent(CommandEnum.LOAD_ITEMS, new LoadXmlItemsCommand());
+        commands.putIfAbsent(CommandEnum.UPDATE_USER_MENU, new UpdateUserMenuCommand());
+        commands.putIfAbsent(CommandEnum.UPDATE_USER, new UpdateUserCommand());
         super.init();
     }
 }

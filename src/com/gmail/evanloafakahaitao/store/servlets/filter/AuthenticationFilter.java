@@ -80,6 +80,20 @@ public class AuthenticationFilter implements Filter {
                         .withRequest(RequestMethodEnum.GET)
                         .build()
         );
+        ADMIN_AVAILABLE.add(
+                AccessMode.newBuilder()
+                        .withRole(RoleEnum.ADMIN)
+                        .withCommand(CommandEnum.UPDATE_USER_MENU)
+                        .withRequest(RequestMethodEnum.GET)
+                        .build()
+        );
+        ADMIN_AVAILABLE.add(
+                AccessMode.newBuilder()
+                        .withRole(RoleEnum.ADMIN)
+                        .withCommand(CommandEnum.UPDATE_USER)
+                        .withRequest(RequestMethodEnum.POST)
+                        .build()
+        );
 
     }
 

@@ -82,56 +82,48 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int update(Connection connection, User user) throws SQLException {
-        int updatedColumns = 0;
+    public int update(Connection connection, User newUser, User oldUser) throws SQLException {
+        int updatedRows = 0;
         String sql =
                 "UPDATE \n" +
                 "   user \n" +
                 "SET \n" +
-                "   ? = ? \n" +
+                "   first_name = ?, \n" +
+                "   last_name = ?, \n" +
+                "   email = ?, \n" +
+                "   additional_info = ?, \n" +
+                "   phone_number = ? \n" +
                 "WHERE \n" +
                 "   user.id = ?;\n";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            if (user.getFirstName() != null) {
-                preparedStatement.setString(1, "first_name");
-                preparedStatement.setString(2, user.getFirstName());
-                preparedStatement.setLong(3, user.getId());
-                preparedStatement.addBatch();
-            }
-            if (user.getLastName() != null) {
-                preparedStatement.setString(1, "last_name");
-                preparedStatement.setString(2, user.getLastName());
-                preparedStatement.setLong(3, user.getId());
-                preparedStatement.addBatch();
-            }
-            if (user.getEmail() != null) {
-                preparedStatement.setString(1, "email");
-                preparedStatement.setString(2, user.getEmail());
-                preparedStatement.setLong(3, user.getId());
-                preparedStatement.addBatch();
-            }
-            if (user.getAdditionalInfo() != null) {
-                preparedStatement.setString(1, "additional_info");
-                preparedStatement.setString(2, user.getAdditionalInfo());
-                preparedStatement.setLong(3, user.getId());
-                preparedStatement.addBatch();
-            }
-            if (user.getPhoneNumber() != null) {
-                preparedStatement.setString(1, "phone_number");
-                preparedStatement.setString(2, user.getPhoneNumber());
-                preparedStatement.setLong(3, user.getId());
-                preparedStatement.addBatch();
-            }
-            int[] rows = preparedStatement.executeBatch();
-            for (int row : rows) {
-                updatedColumns += row;
-            }
+            preparedStatement.setString(
+                    1,
+                    (newUser.getFirstName() == null) ? oldUser.getFirstName() : newUser.getFirstName()
+            );
+            preparedStatement.setString(
+                    2,
+                    (newUser.getLastName() == null) ? oldUser.getLastName() : newUser.getLastName()
+            );
+            preparedStatement.setString(
+                    3,
+                    (newUser.getEmail() == null) ? oldUser.getEmail() : newUser.getEmail()
+            );
+            preparedStatement.setString(
+                    4,
+                    (newUser.getAdditionalInfo() == null) ? oldUser.getAdditionalInfo() : newUser.getAdditionalInfo()
+            );
+            preparedStatement.setString(
+                    5,
+                    (newUser.getPhoneNumber() == null) ? oldUser.getPhoneNumber() : newUser.getPhoneNumber()
+            );
+            preparedStatement.setLong(6, newUser.getId());
+            updatedRows = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error updating User");
             e.printStackTrace();
             throw new SQLException(e);
         }
-        return updatedColumns;
+        return updatedRows;
     }
 
     @Override

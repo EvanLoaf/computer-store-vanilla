@@ -3,9 +3,12 @@ package com.gmail.evanloafakahaitao.store.servlets.command.impl;
 import com.gmail.evanloafakahaitao.store.config.ConfigurationManager;
 import com.gmail.evanloafakahaitao.store.config.properties.FileProperties;
 import com.gmail.evanloafakahaitao.store.config.properties.PageProperties;
+import com.gmail.evanloafakahaitao.store.dao.model.User;
 import com.gmail.evanloafakahaitao.store.services.ItemService;
+import com.gmail.evanloafakahaitao.store.services.UserService;
 import com.gmail.evanloafakahaitao.store.services.XmlService;
 import com.gmail.evanloafakahaitao.store.services.impl.ItemServiceImpl;
+import com.gmail.evanloafakahaitao.store.services.impl.UserServiceImpl;
 import com.gmail.evanloafakahaitao.store.services.impl.XmlServiceImpl;
 import com.gmail.evanloafakahaitao.store.services.model.ItemXmlBinding;
 import com.gmail.evanloafakahaitao.store.servlets.command.Command;
@@ -19,6 +22,7 @@ import java.util.List;
 public class LoadXmlItemsCommand implements Command {
 
     private ItemService itemService = new ItemServiceImpl();
+    private UserService userService = new UserServiceImpl();
     private XmlService xmlService = new XmlServiceImpl();
     private ConfigurationManager configurationManager = ConfigurationManager.getInstance();
 
@@ -30,7 +34,9 @@ public class LoadXmlItemsCommand implements Command {
         );
         int savedItems = itemService.save(items);
         if (savedItems == 0) {
+            List<User> users = userService.findAll();
             request.setAttribute("error", "No new items saved");
+            request.setAttribute("users", users);
             return configurationManager.getProperty(PageProperties.USERS_PAGE_PATH);
         } else {
             response.sendRedirect(request.getContextPath() + CommandEnum.ITEMS.getUrl());

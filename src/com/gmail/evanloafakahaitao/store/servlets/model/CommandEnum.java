@@ -4,7 +4,9 @@ public enum CommandEnum {
     LOGIN("/dispatcher?command=login"),
     USERS("/dispatcher?command=users"),
     ITEMS("/dispatcher?command=items"),
-    LOAD_ITEMS("/dispatcher?command=load_items");
+    LOAD_ITEMS("/dispatcher?command=load_items"),
+    UPDATE_USER_MENU("/dispatcher?command=update_user_menu"),
+    UPDATE_USER("/dispatcher?command=update_user");
 
     private final String url;
 

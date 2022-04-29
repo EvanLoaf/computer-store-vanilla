@@ -12,7 +12,7 @@ public interface UserDao {
 
     User findByEmail(Connection connection, String email);
 
-    int update(Connection connection, User user) throws SQLException;
+    int update(Connection connection, User newUser, User oldUser) throws SQLException;
 
     User findById(Connection connection, Long id);
 }

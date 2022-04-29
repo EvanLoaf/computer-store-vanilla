@@ -15,16 +15,17 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao = new UserDaoImpl();
 
     @Override
-    public int update(User user) {
-        int updatedColumns = 0;
+    public int update(User newUser) {
+        int updatedRows = 0;
         Connection connection = ConnectionService.getInstance().getConnection();
         System.out.println("Updating user");
+        User oldUser = userDao.findById(connection, newUser.getId());
         try {
             connection.setAutoCommit(false);
-            updatedColumns = userDao.update(connection, user);
+            updatedRows = userDao.update(connection, newUser, oldUser);
             connection.commit();
-            //TODO make sure updatedColumns counter is accurate
-            System.out.printf("Updated %d columns in User%n", updatedColumns);
+            //TODO make sure updatedRows counter is accurate
+            System.out.printf("Updated %d columns in User%n", updatedRows);
         } catch (SQLException e) {
             try {
                 connection.rollback();
@@ -41,7 +42,7 @@ public class UserServiceImpl implements UserService {
                 e.printStackTrace();
             }
         }
-        return updatedColumns;
+        return updatedRows;
     }
 
     @Override

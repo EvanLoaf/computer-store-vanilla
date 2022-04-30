@@ -46,7 +46,7 @@ public class OrderDaoImpl implements OrderDao {
                 "FROM \n" +
                 "   `order` \n" +
                 "WHERE \n" +
-                "   `order`.id = ?;\n";
+                "   `order`.user_id = ?;\n";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, id);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {

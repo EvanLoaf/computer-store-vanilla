@@ -36,6 +36,7 @@ public class LoadXmlItemsCommand implements Command {
         if (savedItems == 0) {
             List<User> users = userService.findAll();
             request.setAttribute("error", "No new items saved");
+            //FIXME check behavior
             request.setAttribute("users", users);
             return configurationManager.getProperty(PageProperties.USERS_PAGE_PATH);
         } else {

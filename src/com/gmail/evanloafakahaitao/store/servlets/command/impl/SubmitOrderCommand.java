@@ -5,7 +5,9 @@ import com.gmail.evanloafakahaitao.store.config.properties.PageProperties;
 import com.gmail.evanloafakahaitao.store.dao.model.Item;
 import com.gmail.evanloafakahaitao.store.dao.model.Order;
 import com.gmail.evanloafakahaitao.store.dao.model.User;
+import com.gmail.evanloafakahaitao.store.services.ItemService;
 import com.gmail.evanloafakahaitao.store.services.OrderService;
+import com.gmail.evanloafakahaitao.store.services.impl.ItemServiceImpl;
 import com.gmail.evanloafakahaitao.store.services.impl.OrderServiceImpl;
 import com.gmail.evanloafakahaitao.store.servlets.command.Command;
 import com.gmail.evanloafakahaitao.store.servlets.model.CommandEnum;
@@ -19,15 +21,14 @@ import java.io.IOException;
 public class SubmitOrderCommand implements Command {
 
     private OrderService orderService = new OrderServiceImpl();
+    private ItemService itemService = new ItemServiceImpl();
     private ConfigurationManager configurationManager = ConfigurationManager.getInstance();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String vendorCode = request.getParameter("vendor_code");
         Integer quantity = Integer.parseInt(request.getParameter("quantity"));
-        Item item = Item.newBuilder()
-                .withVendorCode(vendorCode)
-                .build();
+        Item item = itemService.findByVendorCode(vendorCode);
         HttpSession session = request.getSession();
         UserPrincipal userPrincipal = (UserPrincipal) session.getAttribute("user");
         User user = User.newBuilder()

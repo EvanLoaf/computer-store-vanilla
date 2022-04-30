@@ -58,7 +58,7 @@
                                         </c:when>
                                         <c:otherwise>
                                             <a href="${app}/dispatcher?command=make_order&vendor_code=${item.vendorCode}"
-                                               class="btn btn-primary disabled" aria-pressed="true" role="button">ORDER</a>
+                                               class="btn btn-primary disabled" aria-pressed="true" role="button" disabled="true">ORDER</a>
                                         </c:otherwise>
                                     </c:choose>
                                 </td>

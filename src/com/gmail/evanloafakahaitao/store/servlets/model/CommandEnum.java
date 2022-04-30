@@ -9,7 +9,8 @@ public enum CommandEnum {
     UPDATE_USER("/dispatcher?command=update_user"),
     MAKE_ORDER("/dispatcher?command=make_order"),
     SUBMIT_ORDER("/dispatcher?command=submit_order"),
-    ORDERS("/dispatcher?command=orders");
+    ORDERS("/dispatcher?command=orders"),
+    DELETE_ORDER("/dispatcher?command=delete_order");
 
     private final String url;
 

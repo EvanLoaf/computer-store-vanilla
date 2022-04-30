@@ -30,6 +30,7 @@ public class ExceptionServlet extends HttpServlet {
             requestUri = "unknown";
         }
         System.out.println("Error details : ");
+        System.out.printf("Message : %s%n", throwable.getMessage());
         System.out.printf("Status code : %d%n", statusCode);
         System.out.printf("Servlet name : %s%n", servletName);
         System.out.printf("Exception type : %s%n", throwable.getClass().getName());

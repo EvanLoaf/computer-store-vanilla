@@ -57,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
         Connection connection = ConnectionService.getInstance().getConnection();
         System.out.println("Retrieving orders by User id");
         orders = orderDao.findByUserId(connection, id);
-        System.out.printf("Retrieved %s items for User id %d%n", (orders != null) ? orders.size() : null, id);
+        System.out.printf("Retrieved %s orders for User id %d%n", (orders != null) ? orders.size() : null, id);
         return orders;
     }
 

@@ -51,8 +51,8 @@
             <form action="${app}/dispatcher?command=submit_order&vendor_code=${item.vendorCode}" method="post">
                 <div class="form-group">
                     <label for="quantity">Quantity</label>
-                    <input type="text" name="quantity" value="${quantity}" class="form-control" id="quantity"
-                           placeholder="1" max="10">
+                    <input type="number" name="quantity" value="${quantity}" class="form-control" id="quantity"
+                           placeholder="1" min="1" max="10">
                 </div>
                 <button type="submit" class="btn btn-primary">Order PC</button>
             </form>

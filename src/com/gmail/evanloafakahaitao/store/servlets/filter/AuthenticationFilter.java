@@ -69,6 +69,13 @@ public class AuthenticationFilter implements Filter {
                         .withRequest(RequestMethodEnum.GET)
                         .build()
         );
+        USER_AVAILABLE.add(
+                AccessMode.newBuilder()
+                        .withRole(RoleEnum.USER)
+                        .withCommand(CommandEnum.DELETE_ORDER)
+                        .withRequest(RequestMethodEnum.GET)
+                        .build()
+        );
 
 
 

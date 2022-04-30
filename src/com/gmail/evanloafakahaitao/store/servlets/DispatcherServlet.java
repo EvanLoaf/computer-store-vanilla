@@ -65,6 +65,7 @@ public class DispatcherServlet extends HttpServlet {
         commands.putIfAbsent(CommandEnum.MAKE_ORDER, new MakeOrderCommand());
         commands.putIfAbsent(CommandEnum.SUBMIT_ORDER, new SubmitOrderCommand());
         commands.putIfAbsent(CommandEnum.ORDERS, new OrdersCommand());
+        commands.putIfAbsent(CommandEnum.DELETE_ORDER, new DeleteOrderCommand());
         super.init();
     }
 }

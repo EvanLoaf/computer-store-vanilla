@@ -31,11 +31,11 @@ public class ConnectionService {
     }
 
     public Connection getConnection() {
-        System.out.println("Establishing DB connection...");
         ConfigurationManager configurationManager = ConfigurationManager.getInstance();
         if (connection != null) {
             return connection;
         } else {
+            System.out.println("Establishing DB connection...");
             try {
                 connection = DriverManager.getConnection(
                         configurationManager.getProperty(DatabaseProperties.DATABASE_URL),

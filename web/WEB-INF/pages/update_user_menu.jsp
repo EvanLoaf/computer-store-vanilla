@@ -22,8 +22,7 @@
                 <div class="form-group">
                     <label for="input_email">Email address</label>
                     <input type="email" name="old_email" value="${user.email}"
-                           id="input_old_email"
-                           hidden>
+                           id="input_old_email" hidden>
                     <input type="email" name="old_email" value="${user.email}" class="form-control"
                            aria-describedby="emailHelp"
                            placeholder="mail@mail.com" disabled>
@@ -33,9 +32,6 @@
                 </div>
                 <div class="form-group">
                     <label for="input_password">Password</label>
-                    <input type="password" name="old_password" value="${user.password}"
-                           id="input_old_password"
-                           hidden>
                     <input type="password" name="old_password" value="${user.password}" class="form-control"
                            placeholder="********" disabled>
                     <input type="password" name="password" value="${password}" class="form-control" id="input_password"
@@ -43,9 +39,6 @@
                 </div>
                 <div class="form-group">
                     <label for="input_first_name">First name</label>
-                    <input type="text" name="old_first_name" value="${user.firstName}"
-                           id="input_old_first_name"
-                           hidden>
                     <input type="text" name="old_first_name" value="${user.firstName}" class="form-control"
                            placeholder="John" disabled>
                     <input type="text" name="first_name" value="${first_name}" class="form-control"
@@ -54,9 +47,6 @@
                 </div>
                 <div class="form-group">
                     <label for="input_last_name">Last name</label>
-                    <input type="text" name="old_last_name" value="${user.lastName}"
-                           id="input_old_last_name"
-                           hidden>
                     <input type="text" name="old_last_name" value="${user.lastName}" class="form-control"
                            placeholder="Doe" disabled>
                     <input type="text" name="last_name" value="${last_name}" class="form-control" id="input_last_name"
@@ -64,9 +54,6 @@
                 </div>
                 <div class="form-group">
                     <label for="input_phone_number">Phone number</label>
-                    <input type="text" name="old_phone_number" value="${user.phoneNumber}"
-                           id="input_old_phone_number"
-                           hidden>
                     <input type="text" name="old_phone_number" value="${user.phoneNumber}" class="form-control"
                            placeholder="1-800-1" disabled>
                     <input type="text" name="phone_number" value="${phone_number}" class="form-control"
@@ -75,9 +62,6 @@
                 </div>
                 <div class="form-group">
                     <label for="input_additional_info">Add info</label>
-                    <input type="text" name="old_additional_info" value="${user.additionalInfo}"
-                           id="input_old_additional_info"
-                           hidden>
                     <input type="text" name="old_additional_info" value="${user.additionalInfo}" class="form-control"
                            placeholder="info" disabled>
                     <input type="text" name="additional_info" value="${additional_info}" class="form-control" id="input_additional_info"

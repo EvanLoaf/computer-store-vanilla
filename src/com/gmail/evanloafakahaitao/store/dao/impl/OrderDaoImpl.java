@@ -17,7 +17,7 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public int save(Connection connection, Order order) throws SQLException {
-        int changedRows = 0;
+        int changedRows;
         String sql =
                 "INSERT INTO \n" +
                 "   `order` (order_code, user_id, item_id, quantity) \n" +
@@ -64,7 +64,7 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public int delete(Connection connection, String orderCode) throws SQLException {
-        int changedRows = 0;
+        int changedRows;
         String sql =
                 "DELETE FROM \n" +
                 "   `order` \n" +

@@ -24,8 +24,7 @@ public class UserServiceImpl implements UserService {
             connection.setAutoCommit(false);
             updatedRows = userDao.update(connection, newUser, oldUser);
             connection.commit();
-            //TODO make sure updatedRows counter is accurate
-            System.out.printf("Updated %d columns in User%n", updatedRows);
+            System.out.printf("Updated %d rows in User%n", updatedRows);
         } catch (SQLException e) {
             try {
                 connection.rollback();

@@ -1,6 +1,6 @@
 package com.gmail.evanloafakahaitao.store.services.util;
 
-import com.gmail.evanloafakahaitao.store.services.model.ItemsXmlBinding;
+import com.gmail.evanloafakahaitao.store.services.model.CatalogXmlBinding;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -9,12 +9,12 @@ import java.io.File;
 
 public class XmlParser {
 
-    public ItemsXmlBinding unmarshal(File xml) {
-        ItemsXmlBinding items = null;
+    public CatalogXmlBinding unmarshal(File xml) {
+        CatalogXmlBinding items = null;
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(ItemsXmlBinding.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(CatalogXmlBinding.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            items = (ItemsXmlBinding) unmarshaller.unmarshal(xml);
+            items = (CatalogXmlBinding) unmarshaller.unmarshal(xml);
         } catch (JAXBException e) {
             System.out.println("Error parsing XML");
             e.printStackTrace();

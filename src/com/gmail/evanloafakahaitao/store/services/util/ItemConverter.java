@@ -10,7 +10,7 @@ public class ItemConverter {
 
     public List<Item> toItems(List<ItemXmlBinding> itemXmlBindings) {
         List<Item> items = new ArrayList<>();
-        if (itemXmlBindings != null && itemXmlBindings.size() > 0) {
+        if (itemXmlBindings != null && !itemXmlBindings.isEmpty()) {
             System.out.printf("Converting XML items, count : %d%n", itemXmlBindings.size());
             for (ItemXmlBinding itemXmlBinding : itemXmlBindings) {
                 Item item = Item.newBuilder()

@@ -60,7 +60,7 @@ VALUES (1, 'admin'),
 ON DUPLICATE KEY UPDATE id   = VALUES(id),
                         name = VALUES(name);
 
-REPLACE INTO user (id, first_name, last_name, email, password, additional_info, phone_number, role_id)
+INSERT INTO user (id, first_name, last_name, email, password, additional_info, phone_number, role_id)
 VALUES (1,
         'admin_name',
         'admin_surname',
@@ -76,4 +76,11 @@ VALUES (1,
         'root',
         'user_info',
         '+8624-user',
-        (SELECT id FROM role WHERE name = 'user'));
+        (SELECT id FROM role WHERE name = 'user'))
+ON DUPLICATE KEY UPDATE id              = VALUES(id),
+                        first_name      = VALUES(first_name),
+                        last_name       = VALUES(last_name),
+                        email           = VALUES(email),
+                        password        = VALUES(password),
+                        additional_info = VALUES(additional_info),
+                        phone_number    = VALUES(phone_number);

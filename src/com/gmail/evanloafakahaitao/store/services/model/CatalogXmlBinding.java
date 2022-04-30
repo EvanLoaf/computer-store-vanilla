@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @XmlRootElement(name = "catalog")
-public class ItemsXmlBinding {
+public class CatalogXmlBinding {
 
     private List<ItemXmlBinding> items;
 
@@ -20,7 +20,7 @@ public class ItemsXmlBinding {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("ItemsXmlBinding{");
+        final StringBuffer sb = new StringBuffer("CatalogXmlBinding{");
         sb.append("items=").append(items);
         sb.append('}');
         return sb.toString();

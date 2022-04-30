@@ -83,7 +83,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int update(Connection connection, User newUser, User oldUser) throws SQLException {
-        int updatedRows = 0;
+        int updatedRows;
         String sql =
                 "UPDATE \n" +
                 "   user \n" +

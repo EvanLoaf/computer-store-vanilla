@@ -28,7 +28,6 @@ public class OrderConverter {
         try {
             id = resultSet.getLong("id");
             orderCode = resultSet.getString("order_code");
-            //FIXME This things is 99% not gonna work, remember to find fix when JSP is ready
             created = (LocalDateTime) resultSet.getObject("created");
             quantity = resultSet.getInt("quantity");
             item = itemDao.findById(

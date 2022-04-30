@@ -140,7 +140,7 @@ public class AuthenticationFilter implements Filter {
                 defaultRequest(servletRequest, servletResponse, filterChain, request, response, command);
             } else {
                 CommandEnum commandEnum = CommandEnum.getCommand(command);
-                //TODO remove, for error handling purposes only
+                //TODO Error handling showcase, remove if ever in production LOL
                 if (commandEnum == null) {
                     throw new ServletException("Test Error - AuthenticationFilter.doFilter");
                 }
@@ -161,7 +161,7 @@ public class AuthenticationFilter implements Filter {
         }
     }
 
-    public void defaultRequest(
+    private void defaultRequest(
             ServletRequest servletRequest,
             ServletResponse servletResponse,
             FilterChain filterChain,

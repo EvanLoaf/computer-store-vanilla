@@ -3,8 +3,8 @@ package com.gmail.evanloafakahaitao.store.services.impl;
 import com.gmail.evanloafakahaitao.store.dao.XmlDao;
 import com.gmail.evanloafakahaitao.store.dao.impl.XmlDaoImpl;
 import com.gmail.evanloafakahaitao.store.services.XmlService;
+import com.gmail.evanloafakahaitao.store.services.model.CatalogXmlBinding;
 import com.gmail.evanloafakahaitao.store.services.model.ItemXmlBinding;
-import com.gmail.evanloafakahaitao.store.services.model.ItemsXmlBinding;
 import com.gmail.evanloafakahaitao.store.services.util.XmlParser;
 import com.gmail.evanloafakahaitao.store.services.util.XmlValidator;
 
@@ -19,7 +19,7 @@ public class XmlServiceImpl implements XmlService {
 
     @Override
     public List<ItemXmlBinding> getItems(String filePath, String schemaPath) {
-        ItemsXmlBinding items = new ItemsXmlBinding();
+        CatalogXmlBinding items = new CatalogXmlBinding();
         File xml = xmlDao.getFile(filePath);
         File schema = xmlDao.getFile(schemaPath);
         boolean isValid = xmlValidator.validate(xml, schema);

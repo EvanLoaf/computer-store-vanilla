@@ -56,9 +56,9 @@ public class ConnectionService {
         if (connection != null) {
             try {
                 connection.close();
-                System.out.println("Connection closed!");
+                System.out.println("DB Connection closed");
             } catch (SQLException e) {
-                System.out.println("Closing connection failed!");
+                System.out.println("Closing DB connection failed");
                 e.printStackTrace();
             }
         }

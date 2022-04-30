@@ -9,6 +9,10 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <listener>
+        <listener-class>com.gmail.evanloafakahaitao.store.servlets.listener.ServletListener</listener-class>
+    </listener>
+
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>

@@ -54,11 +54,13 @@ CREATE TABLE IF NOT EXISTS `order` (
     ON UPDATE CASCADE
 );
 
-REPLACE INTO role
+INSERT INTO role (id, name)
 VALUES (1, 'admin'),
-       (2, 'user');
+       (2, 'user')
+ON DUPLICATE KEY UPDATE id   = VALUES(id),
+                        name = VALUES(name);
 
-REPLACE INTO user
+REPLACE INTO user (id, first_name, last_name, email, password, additional_info, phone_number, role_id)
 VALUES (1,
         'admin_name',
         'admin_surname',
